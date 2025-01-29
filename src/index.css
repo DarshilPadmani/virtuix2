@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+* {
+  color: #fff;
+}
+
+body {
+  background-color: #111;
+}
+
+#tasklist::-webkit-scrollbar {
+  display: none;
+}

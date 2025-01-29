@@ -1,0 +1,22 @@
+.blog-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.blog-posts {
+    margin-top: 20px;
+}
+
+.blog-post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.blog-post h2 {
+    margin-top: 0;
+}
+
+.blog-post p {
+    margin: 0;
+}
