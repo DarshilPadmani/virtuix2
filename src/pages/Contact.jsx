@@ -129,7 +129,7 @@ const Contact = () => {
                                     rel="noopener noreferrer"
                                     className="text-gray-700 hover:text-blue-500 text-xl"
                                 >
-                                    <i className="fab fa-youtube text-red-600"></i>
+                                    <i className="fab fa-youtube text-red-500"></i>
                                 </a>
                             </div>
                         </div>
