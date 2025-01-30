@@ -69,7 +69,7 @@ const Header = () => {
                 <div className="flex items-center space-x-4">
                     <a href="/">
                         <img
-                            src="src/assets/images/virtuix.png"
+                            src="images/virtuix.png"
                             alt="Logo"
                             className="h-6 w-auto md:h-8"
                             style={{ maxHeight: "1rem" }}
