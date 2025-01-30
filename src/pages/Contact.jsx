@@ -89,6 +89,7 @@ const Contact = () => {
 
                             {/* Location */}
                             <div className="flex items-center gap-4">
+
                                 <span>
                                     <i className="fas fa-map-marker-alt icon-black"></i>
                                 </span>
@@ -121,6 +122,14 @@ const Contact = () => {
                                     className="text-gray-700 hover:text-blue-500 text-xl"
                                 >
                                     <i className="fab fa-instagram text-pink-700"></i>
+                                </a>
+                                <a
+                                    href="https://www.youtube.com/@virtuixr"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-gray-700 hover:text-blue-500 text-xl"
+                                >
+                                    <i className="fab fa-youtube text-red-600"></i>
                                 </a>
                             </div>
                         </div>
