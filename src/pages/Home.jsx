@@ -2,14 +2,19 @@ import React, { useState, useEffect } from 'react';
 
 const Home = () => {
     const [isAtTop, setIsAtTop] = useState(true);
+    const [scrollOpacity, setScrollOpacity] = useState(1); // Track opacity based on scroll position
 
     useEffect(() => {
         // Function to track scroll position
         const handleScroll = () => {
+            // Check if user is at the top of the page
             if (window.scrollY === 0) {
                 setIsAtTop(true);
+                setScrollOpacity(1); // Fully opaque when at the top
             } else {
                 setIsAtTop(false);
+                const opacity = Math.max(0, 1 - window.scrollY / 500); // Fade out as user scrolls down
+                setScrollOpacity(opacity);
             }
         };
 
@@ -34,7 +39,7 @@ const Home = () => {
                     <h1 className="font-thin px-10 text-6xl sm:text-8xl text-zinc-900 mb-5">
                         Hi, I'm
                     </h1>
-                    <h2 className="font-thin px-10 text-6xl sm:text-8xl  text-zinc-900 mb-5">
+                    <h2 className="font-thin px-10 text-6xl sm:text-8xl text-zinc-900 mb-5">
                         Darshil
                     </h2>
                     <h2 className="font-thin px-10 text-6xl sm:text-8xl text-zinc-900 mb-5">
@@ -43,7 +48,13 @@ const Home = () => {
                 </div>
                 {/* About Button */}
                 {isAtTop && (
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4">
+                    <div
+                        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4"
+                        style={{
+                            opacity: scrollOpacity,
+                            transition: 'opacity 0.9s ease', // Smooth transition for opacity
+                        }}
+                    >
                         <button
                             className="px-10 py-3 font-bold bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-all"
                             onClick={() => {

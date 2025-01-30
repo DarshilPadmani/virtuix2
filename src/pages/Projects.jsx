@@ -83,12 +83,32 @@ const projects = [
         image: "\\images\\UI4Unity.png",
         link: "https://example.com/flappy-bird-ar",
     },
+    {
+        title: "WebAR Image Tracking",
+        description:
+            "An interactive AR experience built using MindAR and A-Frame, featuring image-based tracking and 3D model animations with lighting effects.",
+        techStack: ["AR", "HTML", "A-Frame,", "Three.js", "Animations"],
+        category: "Full Stack",
+        image: "\\images\\arjs.png",
+        link: "https://example.com/flappy-bird-ar",
+    },
+    {
+        title: "UI for Unity",
+        description:
+            "Built interactive login, sign-up, and secure UI features with responsive design in Unity.",
+        techStack: ["UI Design", "Unity", "User Authentication,", " Responsive Design", "Firewall"],
+        category: "AR/VR",
+        image: "\\images\\UI4Unity.png",
+        link: "https://example.com/flappy-bird-ar",
+    },
+    // Add more projects here...
 ];
 
 const categories = ["All", "AR/VR", "Full Stack", "Data Science"];
 
 const Projects = () => {
     const [activeCategory, setActiveCategory] = useState("All");
+    const [visibleProjects, setVisibleProjects] = useState(9); // Default visible projects
 
     const filteredProjects =
         activeCategory === "All"
@@ -98,6 +118,15 @@ const Projects = () => {
                     ? project.category.includes(activeCategory)
                     : project.category === activeCategory
             );
+
+    const toggleVisibleProjects = () => {
+        if (visibleProjects === 9) {
+            setVisibleProjects(filteredProjects.length); // Show all projects
+        } else {
+            setVisibleProjects(9); // Show only 9 projects
+        }
+    };
+
     return (
         <section id="projects" className="py-16 bg-white text-gray-900 px-8">
             <div className="container mx-auto max-w-6xl">
@@ -124,7 +153,7 @@ const Projects = () => {
 
                 {/* Projects Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    {filteredProjects.map((project, index) => (
+                    {filteredProjects.slice(0, visibleProjects).map((project, index) => (
                         <div
                             key={index}
                             className="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
@@ -164,6 +193,16 @@ const Projects = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                {/* Show More/Less Button */}
+                <div className="text-center mt-8">
+                    <button
+                        onClick={toggleVisibleProjects}
+                        className="px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-all"
+                    >
+                        {visibleProjects === 9 ? "Show More..." : "Show Less..."}
+                    </button>
                 </div>
             </div>
         </section>
