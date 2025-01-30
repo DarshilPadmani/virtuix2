@@ -1,6 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Home = () => {
+    const [isAtTop, setIsAtTop] = useState(true);
+
+    useEffect(() => {
+        // Function to track scroll position
+        const handleScroll = () => {
+            if (window.scrollY === 0) {
+                setIsAtTop(true);
+            } else {
+                setIsAtTop(false);
+            }
+        };
+
+        // Add event listener on component mount
+        window.addEventListener('scroll', handleScroll);
+
+        // Clean up event listener on component unmount
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <section
             id="home"
@@ -21,19 +42,21 @@ const Home = () => {
                     </h2>
                 </div>
                 {/* About Button */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4">
-                    <button
-                        className="px-10 py-3 font-bold bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-all"
-                        onClick={() => {
-                            const aboutSection = document.getElementById('about');
-                            if (aboutSection) {
-                                aboutSection.scrollIntoView({ behavior: 'smooth' });
-                            }
-                        }}
-                    >
-                        About
-                    </button>
-                </div>
+                {isAtTop && (
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4">
+                        <button
+                            className="px-10 py-3 font-bold bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-all"
+                            onClick={() => {
+                                const aboutSection = document.getElementById('about');
+                                if (aboutSection) {
+                                    aboutSection.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
+                        >
+                            About
+                        </button>
+                    </div>
+                )}
 
                 {/* Image Section */}
                 <div className="md:w-1/2 flex justify-center mt-8 md:mt-0">
@@ -44,7 +67,7 @@ const Home = () => {
                         className="w-70 h-64 bg-white shadow-sm rounded-md flex flex-col items-center justify-center hover:bg-gray-100 transition-all border border-gray-300"
                     >
                         <img
-                            src="images\2.jpg"
+                            src="images/2.jpg"
                             alt="Loading..."
                             className="w-64 h-56 object-cover rounded-t-md"
                         />
