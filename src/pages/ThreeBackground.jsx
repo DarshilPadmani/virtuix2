@@ -71,7 +71,6 @@ const ThreeBackground = () => {
                 const model = gltf.scene;
 
                 // Scale and center model
-                // const box = new THREE.Box3().setFromObject(model);
                 const size = new THREE.Vector3();
                 box.getSize(size);
                 const scale = 5 / Math.max(size.x, size.y, size.z);
@@ -85,12 +84,6 @@ const ThreeBackground = () => {
             (error) => {
                 console.error("Error loading model:", error);
 
-                // Add a fallback cube if the model fails
-                // const fallbackGeometry = new THREE.BoxGeometry(1, 1, 1);
-                const fallbackMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-                const fallbackMesh = new THREE.Mesh(fallbackGeometry, fallbackMaterial);
-                scene.add(fallbackMesh);
-                console.log("Fallback cube added.");
             }
         );
 
