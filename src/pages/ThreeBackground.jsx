@@ -86,7 +86,7 @@ const ThreeBackground = () => {
                 console.error("Error loading model:", error);
 
                 // Add a fallback cube if the model fails
-                const fallbackGeometry = new THREE.BoxGeometry(1, 1, 1);
+                // const fallbackGeometry = new THREE.BoxGeometry(1, 1, 1);
                 const fallbackMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
                 const fallbackMesh = new THREE.Mesh(fallbackGeometry, fallbackMaterial);
                 scene.add(fallbackMesh);
