@@ -8,6 +8,7 @@ import Contact from './pages/Contact';
 import 'font-awesome/css/font-awesome.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
       </main>
       {/* Analytics Component */}
       <Analytics />
+      {/* Speed Insights Component */}
+      <SpeedInsights />
     </Router>
   );
 }
