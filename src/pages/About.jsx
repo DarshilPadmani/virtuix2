@@ -33,7 +33,7 @@ const About = () => {
                     {/* Right Column: Image */}
                     <div className="flex justify-center">
                         <img
-                            src="/images/Me.jpg"
+                            src="/images/me1.jpg"
                             alt="About Me"
                             className="w-64 h-64 object-cover rounded-lg shadow-lg"
                         />
