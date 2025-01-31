@@ -71,7 +71,7 @@ const ThreeBackground = () => {
                 const model = gltf.scene;
 
                 // Scale and center model
-                const box = new THREE.Box3().setFromObject(model);
+                // const box = new THREE.Box3().setFromObject(model);
                 const size = new THREE.Vector3();
                 box.getSize(size);
                 const scale = 5 / Math.max(size.x, size.y, size.z);
