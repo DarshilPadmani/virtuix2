@@ -7,6 +7,8 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import 'font-awesome/css/font-awesome.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { Analytics } from '@vercel/analytics/react';
+
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           {/* <Route path="/blog" element={<Blog />} /> */}
         </Routes>
       </main>
+      {/* Analytics Component */}
+      <Analytics />
     </Router>
   );
 }
