@@ -65,7 +65,7 @@ const ThreeBackground = () => {
 
         // Load 3D model
         const loader = new GLTFLoader();
-        loader.load('\\images\\apple_vision_pro.glb', function (gltf) {
+        loader.load('/images/apple_vision_pro.glb', function (gltf) {
             const model = gltf.scene;
 
             // Scale and center model
