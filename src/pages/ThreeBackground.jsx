@@ -63,29 +63,24 @@ const ThreeBackground = () => {
             (error) => console.error("HDRI loading error:", error)
         );
 
-        // Load 3D Model
+        // Load 3D model
         const loader = new GLTFLoader();
-        loader.load(
-            "public\\images\\apple_vision_pro.glb", // Ensure model is placed inside `public/models/Textures/`
-            (gltf) => {
-                const model = gltf.scene;
+        loader.load('public\\images\\apple_vision_pro.glb', function (gltf) {
+            const model = gltf.scene;
 
-                // Scale and center model
-                const size = new THREE.Vector3();
-                box.getSize(size);
-                const scale = 5 / Math.max(size.x, size.y, size.z);
-                model.scale.set(scale, scale, scale);
-                model.position.sub(box.getCenter(new THREE.Vector3()));
+            // Scale and center model
+            const box = new THREE.Box3().setFromObject(model);
+            const size = new THREE.Vector3();
+            box.getSize(size);
+            const scale = 5 / Math.max(size.x, size.y, size.z);
+            model.scale.set(scale, scale, scale);
+            model.position.sub(box.getCenter(new THREE.Vector3()));
 
-                scene.add(model);
-                console.log("Model loaded successfully!");
-            },
-            undefined,
-            (error) => {
-                console.error("Error loading model:", error);
-
-            }
-        );
+            scene.add(model);
+            console.log("Model loaded successfully!");
+        }, undefined, function (error) {
+            console.error('Error loading model:', error);
+        });
 
         // Animation loop
         const animate = () => {
