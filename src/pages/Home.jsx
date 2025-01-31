@@ -54,7 +54,7 @@ const Home = () => {
                         className="w-64 h-60 bg-white shadow-sm rounded-md flex flex-col items-center justify-center hover:bg-gray-100 transition-all border border-gray-300"
                     >
                         <img
-                            src="dist\images\2.jpg"
+                            src="/images/2.jpg"
                             alt="Loading..."
                             className="w-64 h-56 object-cover rounded-t-md"
                         />

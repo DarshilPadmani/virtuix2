@@ -37,6 +37,20 @@ const ThreeBackground = () => {
         controls.autoRotate = true; // Enable auto-rotation
         controls.autoRotateSpeed = 1.5; // Set rotation speed
 
+        // Add ambient light
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // soft white light
+        scene.add(ambientLight);
+
+        // Add directional light
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(5, 10, 7.5);
+        scene.add(directionalLight);
+
+        // Add point light
+        const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
+
         // HDRI lighting setup
         new RGBELoader().load(
             "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/blue_photo_studio_2k.hdr",
@@ -52,7 +66,7 @@ const ThreeBackground = () => {
         // Load 3D Model
         const loader = new GLTFLoader();
         loader.load(
-            "src\\assets\\models\\Textures\\apple_vision_pro.glb", // Ensure model is placed inside `public/models/Textures/`
+            "public\\images\\apple_vision_pro.glb", // Ensure model is placed inside `public/models/Textures/`
             (gltf) => {
                 const model = gltf.scene;
 
@@ -114,7 +128,7 @@ const ThreeBackground = () => {
         <div
             id="three-bg"
             ref={canvasContainerRef}
-            className="absolute inset-0 w-full mx-auto h-full"
+            className="absolute inset-0 w-full max-w mx-auto h-full"
         ></div>
     );
 };
